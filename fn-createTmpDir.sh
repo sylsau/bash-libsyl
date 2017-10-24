@@ -1,12 +1,15 @@
+# template for temp dir name (string), optional: set TMP_DIR (string)
 fn_createTmpDir() {
-    # Check if $TMP_DIR exists
+    TMP_DIR=${TMP_DIR:-/tmp}                          # Defaults to /tmp if unset 
     m_checkDir "$TMP_DIR" || fn_err "$TMP_DIR is not a directory or is weird" $ERR_WRONG_TMP_DIR
 
+    # Make full path to actual temp dir
+    DIR_TMP="${TMP_DIR}/${1}"
+
     #-------------------------------------------------------------------------------
-    # Creates a particular temporary directory inside $TMPDIR.
+    # Creates a particular temporary directory inside $TMP_DIR.
     #-------------------------------------------------------------------------------
-    DIR_TMP=$(mktemp -d "$DIR_TMP_TEMPL") || \
-        fn_err "ERROR creating a temporary file" $ERR_WRONG_TMP_DIR
+    mktemp -d "$DIR_TMP" || fn_err "ERROR creating a temporary file" $ERR_WRONG_TMP_DIR
 
     #-------------------------------------------------------------------------------
     # When the program exits, it tries to remove the temporary folder.
