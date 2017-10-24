@@ -1,4 +1,4 @@
-# $1 = message (string)
+# message (string)
 m_say() {
     echo -e "$PROGRAM_NAME: $1"
 }
