@@ -9,7 +9,7 @@ fn_createTmpDir() {
     #-------------------------------------------------------------------------------
     # Creates a particular temporary directory inside $TMP_DIR.
     #-------------------------------------------------------------------------------
-    mktemp -d "$DIR_TMP" || fn_err "ERROR creating a temporary file" $ERR_WRONG_TMP_DIR
+    DIR_TMP="$(mktemp -d "$DIR_TMP")" || fn_err "ERROR creating a temporary file" $ERR_WRONG_TMP_DIR
 
     #-------------------------------------------------------------------------------
     # When the program exits, it tries to remove the temporary folder.
