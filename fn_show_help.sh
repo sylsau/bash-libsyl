@@ -1,17 +1,17 @@
 # Print help
 fn_show_help() {
     cat << EOF
-$PROGRAM_NAME {-Version-}
+$SCRIPT_NAME {-Version-}
     {-DescriptionShort-}
 
 USAGE
-    $PROGRAM_NAME {-ArgumentsList-}
+    $SCRIPT_NAME {-ArgumentsList-}
 
 OPTIONS
     {+flag+} {-ARG-}        {-Description-}
 
 EXAMPLE
-    $ ./$PROGRAM_NAME {-ExampleArgs-}
+    $ ./$SCRIPT_NAME {-ExampleArgs-}
         {-ExplanationExample-}
 
 AUTHOR
