@@ -1,16 +1,16 @@
 fn_help() {
     cat << EOF
 $PROGRAM_NAME {-Version-}
-{-DescriptionShort-}
+    {-DescriptionShort-}
 
 USAGE
     $PROGRAM_NAME {-ArgumentsList-}
 
-{-OPTIONS-}
-    {-Options-}
+OPTIONS
+    {+flag+} {-ARG-}        {-Description-}
 
 EXAMPLE
-    $ $PROGRAM_NAME {-ExampleArgs-}
+    $ ./$PROGRAM_NAME {-ExampleArgs-}
         {-ExplanationExample-}
 
 AUTHOR
