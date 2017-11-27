@@ -1,5 +1,7 @@
-# template for temp dir name (string), optional: set TMP_DIR (string)
-fn_createTmpDir() {
+# Create temporary directory
+# template for dir name (string)
+# optional: TMP_DIR (string)
+fn_create_tmp_dir() {
 	TMP_DIR=${TMP_DIR:-/tmp} 			# Defaults to /tmp if unset 
 	[ -d "$TMP_DIR" ] || fn_err "$TMP_DIR is not a directory" $ERR_WRONG_TMP_DIR
 	# Make full path to actual temp dir

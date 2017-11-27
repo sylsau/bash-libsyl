@@ -1,4 +1,5 @@
-fn_help() {
+# Print help
+fn_show_help() {
     cat << EOF
 $PROGRAM_NAME {-Version-}
     {-DescriptionShort-}

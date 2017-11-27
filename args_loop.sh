@@ -1,12 +1,15 @@
-# Arguments parsing
-while test $# -ge 1; do
+# Parse arguments
+while [[ $# -ge 1 ]]; do
 	case "$1" in
 		"{+Condition1+}")
-			{-Command-} ;;
+			{-Command-}
+			;;
 		"{+Condition2+}")
-			{-Command-} ;;
+			{-Command-}
+			;;
 		*)
-			{-Command-} ;;
+			{-Command-}
+			;;
 	esac	# --- end of case ---
 	# Delete $1
 	shift
