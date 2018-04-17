@@ -18,6 +18,6 @@ AUTHOR
     Written by Sylvain Saubier (<http://SystemicResponse.com>)
 
 REPORTING BUGS
-    Mail at: <feedback@systemicresponse.com>
+    Mail at: <feedback@sylsau.com>
 EOF
 }

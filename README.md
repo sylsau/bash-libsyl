@@ -1,8 +1,8 @@
 # bash-libsyl
 
-Library of useful general-purpose bash functions, originally meant to be used with `vim`'s `:read` or `\nr` command from [bash-support.vim](https://github.com/vim-scripts/bash-support.vim).
+Library of useful self-contained general-purpose bash functions.
 
-    # arg 1 desc (type), arg 2 desc (type), etc.
-    func() {
-        # ...
-    }
+To use it, just source it at the start of your BASH script:
+
+	readonly LIBSYL=${LIBSYL:-$HOME/Devel/Src/radiquotes/libsyl.sh}
+	source "$LIBSYL"
