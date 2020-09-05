@@ -1,1 +1,2 @@
 * examine https://unix.stackexchange.com/questions/146329/errtrace-and-local
+* add `|| true` to command you allow to fail
