@@ -8,7 +8,7 @@
 
 [[ $DEBUG ]] && set -o nounset -o xtrace
 set -o pipefail -o errexit -o errtrace
-trap 'syl_exit_err "at ${FUNCNAME:-(top level)}:$LINENO"' ERR
+trap 'syl_exit_err "at ${FUNCNAME:-(top level)}:$LINENO" 999' ERR
 
 readonly SCRIPT_NAME="${0##*/}"
 
@@ -39,7 +39,7 @@ syl_need_dir() {
 # Test if a command exists
 # $1: command
 syl_need_cmd() {
-	command -v "$1" >/dev/null 2>&1 || {
+    command -v "$1" >/dev/null 2>&1 || {
         syl_exit_err "need '$1' (command not found)" $ERR_NO_FILE ; 
     }
 }
@@ -77,7 +77,7 @@ syl_cd_workdir() {
 # $1: prefix for tmp file, $2: suffix (opt)
 syl_mktemp() {
 	[[ $1 ]] || syl_exit_err "${FUNCNAME[0]}: please specify a prefix for temporary file name" $ERR_WRONG_ARG
-	readonly local PATT="$1-$USER-XXXX$2"
+	local PATT="$1-$USER-XXXX$2"
 	RET="$( mktemp "${TMP_DIR}/$PATT" )" || syl_exit_err "can't create temporary file '$PATT' in '$TMP_DIR'" $ERR_NO_FILE
 }
 
@@ -85,6 +85,6 @@ syl_mktemp() {
 # $1: prefix for tmp dir
 syl_mktemp_dir() {
 	[[ $1 ]] || syl_exit_err "${FUNCNAME[0]}: please specify a prefix for temporary directory name" $ERR_WRONG_ARG
-	readonly local PATT="$1-$USER-XXXX"
+	local PATT="$1-$USER-XXXX"
 	RET="$( mktemp -d "${TMP_DIR}/$PATT" )" || syl_exit_err "can't create temporary directory '${PATT}/' in '$TMP_DIR'" $ERR_NO_FILE
 }
