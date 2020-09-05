@@ -1,4 +1,4 @@
-#!/usr/bin/env bash - 
+#!/usr/bin/bash - 
 #===============================================================================
 #  DESCRIPTION: Library of utilitarian variables and functions
 # 		Functions are self-contained and **exit on error**.
