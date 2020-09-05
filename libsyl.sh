@@ -39,7 +39,7 @@ syl_need_dir() {
 # Test if a command exists
 # $1: command
 syl_need_cmd() {
-	command -v "$1" >/dev/null 2>&1 || {
+    command -v "$1" >/dev/null 2>&1 || {
         syl_exit_err "need '$1' (command not found)" $ERR_NO_FILE ; 
     }
 }
