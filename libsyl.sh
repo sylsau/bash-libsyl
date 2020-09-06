@@ -6,8 +6,15 @@
 #      CREATED: 04/09/2018 08:30:10 PM
 #===============================================================================
 
-[[ $DEBUG ]] && set -o nounset -o xtrace
-set -o pipefail -o errexit -o errtrace
+### INFO
+### `[[ ! $VAR ]] || cmd`: cmd is triggered if $VAR non-empty (whatever its value)
+
+readonly DEBUG=${DEBUG:-}
+[[ ! $DEBUG ]] || set -o nounset -o xtrace
+readonly STRICT_MODE=${STRICT_MODE:-true}
+if [ "$STRICT_MODE" = "true" ] || [ $STRICT_MODE -eq 1 ] ; then
+    set -o pipefail -o errexit -o errtrace
+fi
 trap 'syl_exit_err "at ${FUNCNAME:-(top level)}:$LINENO" 999' ERR
 
 readonly SCRIPT_NAME="${0##*/}"
@@ -23,6 +30,18 @@ readonly ERR_NO_FILE=127
 RET=
 # Temporary dir
 readonly TMP_DIR="/tmp"
+
+
+# TODO: does it work lol???
+syl_strict_mode_off() {
+    set +o pipefail +o errexit +o errtrace
+}
+
+# TODO: does it work lol???
+syl_strict_mode_on() {
+    set -o pipefail -o errexit -o errtrace
+}
+
 
 # Test if a file exists (dir or not)
 # $1: path to file
