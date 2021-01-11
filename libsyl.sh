@@ -39,7 +39,9 @@ syl_strict_mode_off() {
 
 # TODO: does it work lol???
 syl_strict_mode_on() {
-    set -o pipefail -o errexit -o errtrace
+    if [ "$STRICT_MODE" = "true" ] || [ $STRICT_MODE -eq 1 ] ; then
+        set -o pipefail -o errexit -o errtrace
+    fi
 }
 
 
